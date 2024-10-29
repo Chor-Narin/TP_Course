@@ -7,6 +7,11 @@ const routes = [
     name: 'App',
     component: App,  
   },
+  {
+    path: '/footer',
+    name: 'FooterComponent',
+    component: 'FooterComponent',
+  }
 ]
 
 const router = createRouter({
