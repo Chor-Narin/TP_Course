@@ -35,9 +35,9 @@ export default {
   data() {
     return {
       PromotionData: [
-        { names: 'Enjoy your day with the best sandwich', color: 'pink', url: srewberry },
-        { names: 'Enjoy your day with the best sandwich', color: 'lightyellow', url: onion },
-        { names: 'Enjoy your day with the best sandwich', color: 'lightgreen', url: vegetables }
+        { names: 'Enjoy your day with the best sandwich', color: 'pink', url: srewberry, buttonColor:"red" },
+        { names: 'Enjoy your day with the best sandwich', color: 'lightyellow', url: onion,buttonColor: "green" },
+        { names: 'Enjoy your day with the best sandwich', color: 'lightgreen', url: vegetables,buttonColor: "black" }
       ],
       CategoryData: [ 
         { lightColor:"#ff9999", name: 'apple', url: apple, des: "13 items"}, 

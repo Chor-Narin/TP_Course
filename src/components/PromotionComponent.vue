@@ -7,7 +7,11 @@
       :style="{backgroundColor: Promotion.color}">
         <div class="card-content">
           <h5 class="card-title">{{ Promotion.names }}</h5>
-          <ButtonComponent class="button" />
+          <ButtonComponent 
+            :buttonColor="Promotion.buttonColor"
+            @click="shopNow(Promotion)"
+            class="button" 
+          />
         </div>
         <img :src="Promotion.url" alt="Promotion image" class="card-img" />
       </div>
@@ -23,6 +27,16 @@ export default {
     manyPromotions: {
       type: Array,
       required: true
+    }
+  },
+  data() {
+    return {
+      promotion: {promotion: 'buy2get1free',}
+    };
+  },
+  methods: {
+    shopNow(Promotion) {
+      alert("Let's shop: "+Promotion.names);
     }
   }
 };
