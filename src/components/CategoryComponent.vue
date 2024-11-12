@@ -4,14 +4,14 @@
       <figure 
       v-for="Category in manyCategorys" 
       :key="Category.name"
-      :style="{ backgroundColor: Category.lightColor }">
-        <img class="image" :src="Category.url" alt="Category image">
+      :style="{ backgroundColor: Category.color }">
+        <img class="image" :src="Category.image" alt="Category image">
         <figcaption class="title">{{ Category.name }}</figcaption>
-        <figcaption>{{ Category.des }}</figcaption>
+        <figcaption>{{ Category.productCount }}</figcaption>
       </figure>
     </div>
   </div>
-</template>
+</template> 
 <script>
 export default {
   props: {
