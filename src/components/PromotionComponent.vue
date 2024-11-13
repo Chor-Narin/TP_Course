@@ -6,14 +6,14 @@
       :key="Promotion.name"
       :style="{backgroundColor: Promotion.color}">
         <div class="card-content">
-          <h5 class="card-title">{{ Promotion.names }}</h5>
+          <h5 class="card-title">{{ Promotion.title }}</h5>
           <ButtonComponent 
             :buttonColor="Promotion.buttonColor"
             @click="shopNow(Promotion)"
             class="button" 
           />
         </div>
-        <img :src="Promotion.url" alt="Promotion image" class="card-img" />
+        <img :src="Promotion.image" alt="Promotion image" class="card-img" />
       </div>
     </div>
   </div>
@@ -26,6 +26,7 @@ export default {
   props: {
     manyPromotions: {
       type: Array,
+      default: () => [],
       required: true
     }
   },
@@ -36,7 +37,7 @@ export default {
   },
   methods: {
     shopNow(Promotion) {
-      alert("Let's shop: "+Promotion.names);
+      alert("Let's shop: "+Promotion.title);
     }
   }
 };
