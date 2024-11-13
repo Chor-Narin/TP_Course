@@ -12,11 +12,12 @@ export const useProductStore = defineStore('product', {
     async fetchCategories() {
       try {
         const response = await axios.get('http://localhost:3000/api/categories');
-        this.categories = response.data;
+        console.log('Categories fetched:', response.data);  // Debug log
+        this.categories = response.data; // Store the data in the store
       } catch (error) {
         console.error("Error fetching categories:", error);
       }
-    },
+    },    
     async fetchPromotions() {
       try {
         const response = await axios.get('http://localhost:3000/api/promotions');
@@ -43,19 +44,15 @@ export const useProductStore = defineStore('product', {
    }
   },
   getters:{
-     //List all categories by group name
      getCategoriesByGroup: (state) => {
           return (groupName) => state.categories.find((category) => category.group === groupName)
      },
-     //List all products by group name
      getProductsByGroup: (state) => {
           return (groupName) => state.promotions.find((promotions) => promotions.group === groupName)
      },
-     //List all products by given categoryId
      getProductsByCategoryId: (state) => {
           return (categoryId) => state.products.filter((product) => product.categoryId === categoryId)
      },
-     //Any product with countSold > 10 is considered popular
      getPopularProducts: (state) => {
           return state.products.filter((product) => product.countSold > 10)
      }

@@ -26,6 +26,7 @@ export default {
   props: {
     manyPromotions: {
       type: Array,
+      default: () => [],
       required: true
     }
   },
