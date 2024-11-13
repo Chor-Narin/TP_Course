@@ -13,18 +13,21 @@ import './assets/tailwind.css'  // Import Tailwind CSS
 import ButtonComponent from './components/ButtonComponent.vue';
 import CategoryComponent from './components/CategoryComponent.vue';
 import PromotionComponent from './components/PromotionComponent.vue';
-import ImageGallery from './components/ImageGallery.vue';
+import { createPinia } from 'pinia';
+
 
 const app = createApp(App);
+const pinia = createPinia()
+
 
 // Use BootstrapVue3
 app.use(BootstrapVue3);
+app.use(pinia);
 
 // Register components
 app.component('ButtonComponent', ButtonComponent);
 app.component('CategoryComponent', CategoryComponent);
 app.component('PromotionComponent', PromotionComponent);
-app.component('ImageGallery', ImageGallery);
 
 // Mount the app
 app.mount('#app');

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <category-component :manyCategorys="CategoryData" class="component" />
-    <promotion-component :manyPromotions="PromotionData" class="component-1" />
+    <category-component :manyCategorys="categories" class="component" />
+    <promotion-component :manyPromotions="promotions" class="component-1" />
   </div>
 </template>
 
@@ -10,7 +10,8 @@ import ButtonComponent from './components/ButtonComponent.vue';
 import PromotionComponent from './components/PromotionComponent.vue';
 import CategoryComponent from './components/CategoryComponent.vue';
 import ImageGallery from './components/ImageGallery.vue';
-import axios from 'axios';
+import { useProductStore } from './stores/index'; 
+import { onMounted, computed } from 'vue';
 
 export default {
   name: "App",
@@ -20,33 +21,23 @@ export default {
     CategoryComponent,
     ImageGallery,
   },
-  data() {
+  setup() {
+    const productStore = useProductStore();
+
+    // Fetch categories and promotions on component mount
+    onMounted(() => {
+      productStore.fetchCategories();
+      productStore.fetchPromotions();
+    });
+
+    // Getters using computed properties
+    const categories = computed(() => productStore.getCategoriesByGroup('Group A')); 
+    const promotions = computed(() => productStore.getProductsByGroup('Group A')); 
+
     return {
-      CategoryData: [],
-      PromotionData: []
-    }
-  },
-  methods: {
-    fetchCategories() {
-      axios.get('http://localhost:3000/api/categories')
-        .then(response => {
-          this.CategoryData = response.data;
-          console.log('CategoryData:', this.CategoryData);
-        })
-        .catch(error => console.error("Error fetching categories:", error));
-    },
-    fetchPromotions() {
-      axios.get('http://localhost:3000/api/promotions')
-        .then(response => {
-          this.PromotionData = response.data;
-          console.log('PromotionData:', this.PromotionData);
-        })
-        .catch(error => console.error("Error fetching promotions:", error));
-    }
-  },
-  mounted() {
-    this.fetchCategories();
-    this.fetchPromotions();
+      categories,
+      promotions
+    };
   }
 };
 </script>
