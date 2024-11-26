@@ -22,6 +22,7 @@
 import ButtonComponent from './ButtonComponent.vue'
 
 export default {
+  name: 'Promotion',
   components: { ButtonComponent },
   props: {
     manyPromotions: {
