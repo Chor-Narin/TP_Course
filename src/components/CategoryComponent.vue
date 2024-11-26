@@ -5,15 +5,16 @@
       v-for="Category in manyCategorys" 
       :key="Category.name"
       :style="{ backgroundColor: Category.color }">
-        <img class="image" :src="Category.image" alt="Category image">
+        <img  :src="Category.image" alt="Category image" class="image" />
         <figcaption class="title">{{ Category.name }}</figcaption>
-        <figcaption>{{ Category.productCount }}</figcaption>
+        <figcaption>{{ Category.productCount }} items</figcaption>
       </figure>
     </div>
   </div>
 </template> 
 <script>
 export default {
+  name : 'Category',
   props: {
     manyCategorys: {
       type: Array,

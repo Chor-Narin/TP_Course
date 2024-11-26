@@ -12,7 +12,6 @@ export const useProductStore = defineStore('product', {
     async fetchCategories() {
       try {
         const response = await axios.get('http://localhost:3000/api/categories');
-        console.log('Categories fetched:', response.data);  // Debug log
         this.categories = response.data; // Store the data in the store
       } catch (error) {
         console.error("Error fetching categories:", error);
@@ -37,7 +36,8 @@ export const useProductStore = defineStore('product', {
    async fetchProducts() {
      try {
        const response = await axios.get('http://localhost:3000/api/products');
-       this.promotions = response.data;
+       this.products = response.data;
+      //  console.log("fetch products", response.data);
      } catch (error) {
        console.error("Error fetching promotions:", error);
      }
