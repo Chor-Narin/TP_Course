@@ -1,12 +1,14 @@
 <template>
     <div id="app">
-    <div class="container">
-      <MenuComponent  class="component-3" />
-      <category-component :manyCategorys="categories" class="component" />
-      <promotion-component :manyPromotions="promotions" class="component-1" />
-      <MenuComponent  class="component-3" />
-      <ProductComponent  :ManyProducts = "products" class="component-2" />
-    </div>
+      <div class="container">
+        <HeaderBarNav />
+        <MenuitemComponent />
+        <MenuComponent  class="component-3" />
+        <category-component :manyCategorys="categories" class="component" />
+        <promotion-component :manyPromotions="promotions" class="component-1" />
+        <MenuComponent  class="component-3" />
+        <ProductComponent  :ManyProducts = "products" class="component-2" />
+      </div>
     </div>
   </template>
   <script>
@@ -17,6 +19,11 @@
   import MenuComponent from '../components/MenuComponent.vue'
   import Category from '../components/CategoryComponent.vue'
   import Promotion from '../components/PromotionComponent.vue'
+  import HeaderBarNav from '../components/HeaderBarNav.vue'
+  import SearchboxComponent from '../components/SearchboxComponent.vue'
+  import MenuitemComponent from '../components/MenuitemComponent.vue'
+  import ProductImageComponent from '../components/ProductImageComponent.vue'
+
   
   export default {
     name: "HomeView",
@@ -45,6 +52,9 @@
       ProductComponent,
       Category,
       Promotion,
+      HeaderBarNav,
+      MenuitemComponent,
+      ProductImageComponent
     },
     computed: {
       ...mapState(useProductStore, {

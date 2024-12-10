@@ -70,6 +70,7 @@
     border: none;
     font-size: 14px;
     outline: none;
+    width: 400px;
   }
   
   .search-button {
