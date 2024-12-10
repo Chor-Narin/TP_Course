@@ -1,10 +1,11 @@
 <template>
   <div id="app">
     <div>
-      <div class="card" 
+      <router-link class="card" 
       v-for="Promotion in manyPromotions" 
       :key="Promotion.name"
-      :style="{backgroundColor: Promotion.color}">
+      :style="{backgroundColor: Promotion.color}"
+      :to="`/categories/${Promotion.id}`">
         <div class="card-content">
           <h5 class="card-title">{{ Promotion.title }}</h5>
           <ButtonComponent 
@@ -14,7 +15,7 @@
           />
         </div>
         <img :src="Promotion.image" alt="Promotion image" class="card-img" />
-      </div>
+      </router-link>
     </div>
   </div>
 </template>

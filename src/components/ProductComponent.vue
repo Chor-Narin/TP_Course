@@ -1,6 +1,10 @@
 <template>
   <div id="app">
-    <div class="card" v-for="product in ManyProducts" :key="product.name">
+
+    <router-link class="card" 
+        v-for="product in ManyProducts" 
+        :key="product.name"
+        :to="`/categories/${product.id}`">
       <!-- Sale Badge -->
       <div class="badge-container" v-if="product.promotionAsPercentage > 0">
         <span class="sale-badge">Sale</span>
@@ -42,7 +46,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </router-link>
   </div>
 </template>
 
@@ -78,6 +82,7 @@ export default {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   position: relative;
   transition: transform 0.2s;
+  text-decoration: none;
 }
 
 .card:hover {
@@ -224,3 +229,4 @@ export default {
   }
 }
 </style>
+
